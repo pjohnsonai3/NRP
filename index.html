@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ai3 · New River · Shortlist Interview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>:root{--paper:#EFEAE1;--paper-2:#F5F1EA;--ink:#211C16;--muted:#6E6457;--faint:#A99E8D;--on-dark:#F4EFE7;--on-dark-mut:rgba(244,239,231,.74);--line:rgba(33,28,22,.16);--line-d:rgba(244,239,231,.18);--signal:#C5311B;--sans:"Jost",system-ui,sans-serif;--title:"Archivo",system-ui,sans-serif;--title-weight:400;--title-spacing:-.01em;--ease:cubic-bezier(.22,.61,.36,1);--padx:clamp(22px,7vw,120px);}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--ink);font-family:var(--sans);font-weight:300;color:var(--on-dark);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}a:hover{color:inherit;opacity:1}
+img{display:block}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+#deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility 0s linear .7s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .9s var(--ease) .12s,visibility 0s}
+.ink{background:var(--ink);color:var(--on-dark)}
+.paper{background:var(--paper);color:var(--ink)}
+html[data-ct="charcoal"] .s-col{background:#2B2926}
+html[data-ct="stone"] .s-col{background:#DEDCD7}
+html[data-ct="linen"] .s-col{background:#EFEAE1}
+html[data-ct="white"] .s-col{background:#FAFAFA}
+/* alternate page themes for the light (.paper) slides */
+html[data-pt="white"] .paper{--paper:#FAFAFA;--ink:#161616;--muted:#6B6B6B;--line:rgba(22,22,22,.14)}
+html[data-pt="stone"] .paper{--paper:#DEDCD7;--ink:#1C1B19;--muted:#57554F;--line:rgba(28,27,25,.18)}
+html[data-pt="charcoal"] .paper{--paper:#2B2926;--ink:#F1EEE8;--muted:#A9A49B;--line:rgba(241,238,232,.16)}
+html[data-pt="charcoal"]:has(.slide.paper.on) body.light .chrome{color:var(--on-dark)}
+html[data-pt="charcoal"]:has(.slide.paper.on) body.light .logo img{filter:none}
+html[data-pt="charcoal"]:has(.slide.paper.on) body.light .chaps a,html[data-pt="charcoal"]:has(.slide.paper.on) body.light .count,html[data-pt="charcoal"]:has(.slide.paper.on) body.light .readout{text-shadow:none}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shade{position:absolute;inset:0;background:radial-gradient(ellipse 62% 46% at 50% 52%,rgba(16,12,8,.42),rgba(16,12,8,0) 72%)}
+.shade.low{background:linear-gradient(to top,rgba(16,12,8,.62),rgba(16,12,8,0) 55%)}
+.cap{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 var(--padx)}
+.cap.low{justify-content:flex-end;align-items:flex-start;text-align:left;padding-bottom:clamp(96px,15vh,150px)}
+.hero .cap{text-shadow:0 1px 3px rgba(16,12,8,.4),0 2px 30px rgba(16,12,8,.5)}
+.eb{font:400 10.5px/1.5 var(--sans);letter-spacing:.34em;text-transform:uppercase;opacity:.72;margin:0 0 20px}
+.t1,.t2,.t3{font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);margin:0;line-height:1.03;text-wrap:balance}
+.t1{font-size:clamp(2.6rem,6.6vw,6.4rem)}
+.t2{font-size:clamp(2rem,4.4vw,4.4rem)}
+.t3{font-size:clamp(1.4rem,2.3vw,2.2rem);line-height:1.12}
+.lead{font:300 clamp(1.05rem,1.6vw,1.5rem)/1.45 var(--sans);max-width:40ch;margin:26px 0 0;text-wrap:pretty}
+.small{font:400 clamp(.8rem,.95vw,.95rem)/1.55 var(--sans);opacity:.78;max-width:60ch;margin:18px 0 0;text-wrap:pretty}
+.mut{opacity:.6}
+.frame{position:absolute;inset:0;padding:clamp(92px,15vh,150px) var(--padx) clamp(92px,14vh,140px);display:flex;flex-direction:column;justify-content:center}
+.frame.top{justify-content:flex-start}
+.words{display:flex;flex-wrap:wrap;gap:.2em .9em;margin:30px 0 0;padding:0;list-style:none;font-family:var(--title);font-weight:var(--title-weight);font-size:clamp(1.3rem,2.4vw,2.3rem);letter-spacing:var(--title-spacing)}
+.words.col{flex-direction:column;gap:.15em}
+.seq{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35em .55em;font-family:var(--title);font-weight:var(--title-weight);font-size:clamp(1.5rem,3.4vw,3.2rem);letter-spacing:var(--title-spacing);margin:34px 0 0}
+.seq i{font-style:normal;opacity:.4;font-family:var(--sans);font-weight:300}
+.split{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.split.rev{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.split.rev .media{order:2}
+.media{position:relative;overflow:hidden}
+.media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.media.fit img{object-fit:contain;padding:clamp(80px,12vh,120px) clamp(20px,3vw,48px)}
+.split .text{min-height:0;overflow:hidden;padding:clamp(92px,15vh,150px) clamp(28px,5vw,90px) clamp(92px,14vh,140px);display:flex;flex-direction:column;justify-content:center}
+.row{display:grid;gap:clamp(12px,1.4vw,24px);margin-top:clamp(24px,4vh,44px)}
+.row.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.row.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.row.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.row figure{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.row figure .im{position:relative;height:var(--ih,42vh);overflow:hidden;background:rgba(0,0,0,.06)}
+.row figure .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.row figure .im.fit img{object-fit:contain}
+.row figcaption{font:400 10.5px/1.5 var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.75}
+.row.g6{grid-template-columns:repeat(3,minmax(0,1fr));--ih:24vh}
+.row figcaption b{font-weight:500;display:block;letter-spacing:.24em}
+.row figcaption span{display:block;text-transform:none;letter-spacing:.02em;font-size:13px;opacity:.85;margin-top:4px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+/* collages (rebuilt from the interview PDF page layouts) */
+.s-col{display:flex;align-items:center;justify-content:center}
+.collage{position:relative;width:min(100vw,calc((100vh - 140px) * 1.7773));aspect-ratio:959.76/540;margin-top:-6px}
+.collage img{position:absolute;object-fit:cover}
+.s-col.bleed .collage{position:absolute;inset:0;width:auto;aspect-ratio:auto;margin:0}
+.s-col.bleed .collage .cw{font-size:clamp(2.6rem,6.6vw,6.4rem)}
+.collage .cw{position:absolute;transform:translateY(-82%);font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:calc(min(100vw,calc((100vh - 140px) * 1.7773)) * .0508);line-height:1;color:var(--on-dark);text-shadow:0 1px 16px rgba(16,12,8,.55);z-index:2}
+/* edit mode */
+.edbar{right:clamp(18px,3vw,44px);bottom:clamp(16px,3vh,32px);display:flex;align-items:center;gap:14px;font:400 9.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+body.light .edbar{text-shadow:none}
+.edbar button{white-space:nowrap;letter-spacing:inherit;text-transform:inherit;font-size:inherit;opacity:.7;padding:6px 0;border-bottom:1px solid transparent;transition:opacity .25s,border-color .25s}
+.edbar button:hover{opacity:1;border-bottom-color:currentColor}
+.edbar .ed-tools{display:none;align-items:center;gap:14px}
+.edbar .ed-st{color:var(--signal);opacity:1}
+body.editing .edbar .ed-go{display:none}
+body.editing .edbar .ed-tools{display:flex}
+body.editing .hint,body.editing .edge{display:none}
+body.editing [contenteditable]{outline:1px dashed rgba(197,49,27,.45);outline-offset:3px;cursor:text}
+body.editing [contenteditable]:hover{outline-color:var(--signal)}
+body.editing [contenteditable]:focus{outline:1px solid var(--signal);text-shadow:none}
+body.editing .slide img{cursor:copy}
+.ed-hot{outline:2px solid var(--signal);outline-offset:-2px}
+.hint{display:none}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,36px);margin-top:clamp(28px,5vh,56px);border-top:1px solid var(--line-d);padding-top:clamp(20px,3vh,32px)}
+.nums div{display:flex;flex-direction:column;gap:8px}
+.nums b{font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:clamp(2.6rem,6vw,6rem);line-height:1}
+.nums span{font:400 10.5px/1.4 var(--sans);letter-spacing:.26em;text-transform:uppercase;opacity:.72}
+.recog{list-style:none;margin:clamp(26px,5vh,54px) 0 0;padding:0;columns:2;column-gap:clamp(24px,5vw,80px);font:300 clamp(.9rem,1.15vw,1.12rem)/1.5 var(--sans)}
+.recog li{break-inside:avoid;padding:7px 0;border-bottom:1px solid var(--line-d)}
+/* clients */
+.clients{list-style:none;margin:clamp(24px,4vh,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(16px,2.4vw,40px);border-top:1px solid var(--line)}
+.clients li{padding:clamp(8px,1.3vh,13px) 0;border-bottom:1px solid var(--line);font:400 clamp(.72rem,.9vw,.9rem)/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.clients li.hd{font-weight:500;color:var(--muted);grid-column:1/-1;border-bottom:0;padding-top:clamp(18px,3vh,30px)}
+/* team */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,5vw,90px);margin-top:clamp(28px,5vh,56px)}
+.team h3{font:500 10.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.team p{margin:0;padding:clamp(12px,2vh,20px) 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.team b{font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:clamp(1.2rem,1.9vw,1.8rem)}
+.team span{font:400 clamp(.78rem,.9vw,.9rem)/1.4 var(--sans);color:var(--muted)}
+/* numbered list */
+.nlist{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid currentColor;border-color:var(--line)}
+.ink .nlist,.ink .nlist li{border-color:var(--line-d)}
+.nlist li{display:grid;grid-template-columns:3em minmax(0,.9fr) minmax(0,1.4fr);gap:14px;align-items:baseline;padding:clamp(9px,1.5vh,15px) 0;border-bottom:1px solid var(--line)}
+.nlist em{font-style:normal;font:400 11px var(--sans);letter-spacing:.2em;opacity:.55}
+.nlist b{font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:clamp(1.05rem,1.6vw,1.5rem)}
+.nlist span{font:300 clamp(.85rem,1vw,1rem)/1.4 var(--sans);opacity:.8}
+.nlist.two li{grid-template-columns:minmax(0,.7fr) minmax(0,1.4fr)}
+/* work galleries */
+.s-work .gimg{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.1s var(--ease)}
+.s-work .gimg.on{opacity:1}
+.s-work .gimg img{width:100%;height:100%;object-fit:cover}
+.s-work .gimg.fit{background:var(--ink)}
+.s-work .gimg.fit img{object-fit:contain;padding:clamp(70px,10vh,100px) clamp(20px,4vw,70px) clamp(110px,17vh,170px)}
+.s-work .gimg.fit.pap{background:var(--paper)}
+.wcap{position:absolute;left:var(--padx);right:var(--padx);bottom:clamp(92px,14vh,136px);z-index:5;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;text-shadow:0 1px 3px rgba(16,12,8,.4),0 2px 30px rgba(16,12,8,.55)}
+.wcap .eb{margin-bottom:12px}
+.wcap .gc{font:400 11px var(--sans);letter-spacing:.24em;white-space:nowrap;opacity:.9}
+.s-work .pstory{position:absolute;left:0;right:0;bottom:0;z-index:4;height:clamp(320px,62%,640px);display:flex;align-items:flex-end;padding:0 var(--padx) clamp(190px,27vh,250px);opacity:0;transform:translateY(20px);pointer-events:none;background:linear-gradient(to top,rgba(16,12,8,.88) 0%,rgba(16,12,8,.7) 30%,rgba(16,12,8,.34) 62%,rgba(16,12,8,0) 100%);transition:opacity .5s var(--ease),transform .55s var(--ease)}
+.s-work .pstory p{max-width:62ch;max-height:40vh;overflow-y:auto;scrollbar-width:none;margin:0;font:400 clamp(14px,1.12vw,16px)/1.78 var(--sans);color:var(--on-dark);text-wrap:pretty;text-shadow:0 1px 22px rgba(20,15,11,.55)}
+@media(hover:hover){.s-work.has-story:hover .pstory{opacity:1;transform:none;pointer-events:auto}}
+body.editing .s-work.has-story .pstory{opacity:1;transform:none;pointer-events:auto}
+.wcap .credit{font:400 12px/1.5 var(--sans);opacity:.8;margin:10px 0 0;max-width:52ch}
+/* schedule */
+.gantt{margin-top:clamp(18px,3vh,30px);font:400 clamp(.7rem,.82vw,.84rem)/1.2 var(--sans)}
+.gh,.gr{display:grid;grid-template-columns:minmax(76px,.5fr) minmax(0,1.9fr) minmax(0,2.2fr);gap:14px;align-items:center}
+.gh{padding-bottom:8px;border-bottom:1px solid var(--ink);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.gh .wk{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+.gh .wk span{border-left:1px solid var(--line);padding-left:3px;font-size:9px;letter-spacing:.06em;white-space:nowrap;overflow:hidden}
+.gr .l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gr{padding:clamp(2px,.45vh,5px) 0;border-bottom:1px solid var(--line)}
+.gr .d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.gr .bar{position:relative;height:clamp(8px,1.2vh,12px);background:repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px calc(100% / var(--n)))}
+.gr .bar i{position:absolute;top:0;bottom:0;background:var(--ink)}
+.gr.m .l{font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.gr.m .bar i{background:none}
+.gr.m .bar i::after{content:"";position:absolute;left:50%;top:50%;width:clamp(8px,1.1vh,11px);height:clamp(8px,1.1vh,11px);background:var(--signal);transform:translate(-50%,-50%) rotate(45deg)}
+.gfoot{margin-top:14px;font:400 12px/1.5 var(--sans);color:var(--muted)}
+.ov{margin-top:clamp(28px,5vh,56px)}
+.ov .months{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));font:400 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--ink);padding-bottom:10px}
+.ov .lane{position:relative;min-height:clamp(64px,10vh,92px);border-bottom:1px solid var(--line);padding:clamp(8px,1.4vh,14px) 0}
+.ov .lane .ph{position:relative;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:clamp(10px,1.6vh,16px) clamp(12px,1.4vw,22px);gap:5px}
+.ov .ph b{font:500 10.5px var(--sans);letter-spacing:.26em;text-transform:uppercase}
+.ov .ph span{font:300 clamp(.8rem,1vw,1rem)/1.3 var(--sans)}
+.ov .ph em{font-style:normal;font:400 11px var(--sans);opacity:.75}
+.ov .mk{position:absolute;top:0;bottom:0;border-left:1px dashed var(--muted);font:400 10px var(--sans);letter-spacing:.2em;color:var(--muted);padding:6px 0 0 6px;text-transform:uppercase;display:flex;align-items:flex-start;white-space:nowrap}
+.ov .mk.red{border-left:1px solid var(--signal);color:var(--signal);align-items:flex-end;padding-bottom:6px}
+.ov .mk.red span{position:absolute;right:8px;bottom:-22px}
+.drc{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin-top:clamp(30px,6vh,64px);border-top:1px solid var(--ink)}
+.drc div{padding:18px 12px 0 0;position:relative;display:flex;flex-direction:column;gap:10px}
+.drc div::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;background:var(--ink);transform:rotate(45deg)}
+.drc div.red::before{background:var(--signal)}
+.drc b{font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:clamp(1.1rem,1.8vw,1.7rem)}
+.drc span{font:400 10px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3.4vw,60px);margin-top:clamp(24px,4vh,44px)}
+.cols3 h3{font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;margin:0 0 6px;padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.cols3 p{margin:0;display:grid;grid-template-columns:5.4em minmax(0,1fr);gap:10px;padding:clamp(6px,1.1vh,11px) 0;border-bottom:1px solid var(--line);font:300 clamp(.8rem,.95vw,.96rem)/1.35 var(--sans)}
+.cols3 p em{font-style:normal;color:var(--muted);font-weight:400;white-space:nowrap}
+.budget{margin-top:18px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.budget p{margin:0;display:flex;justify-content:space-between;gap:20px;padding:9px 0;border-bottom:1px solid var(--line);font:300 clamp(.82rem,.96vw,.98rem)/1.35 var(--sans)}
+.budget p b{font-weight:500;white-space:nowrap}
+.steve3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,30px);margin-top:26px}
+.steve3 h4{font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;margin:0 0 8px}
+.steve3 p{margin:0;font:300 clamp(.82rem,.96vw,.98rem)/1.4 var(--sans);opacity:.85}
+.steve3 div{border-top:1px solid var(--line-d);padding-top:14px}
+.steve3 div.us{border-top-color:var(--signal)}
+.steve3 ul{margin:8px 0 0;padding:0 0 0 1em;font:300 clamp(.78rem,.9vw,.92rem)/1.45 var(--sans);opacity:.8}
+/* chrome */
+.chrome{position:fixed;z-index:20;color:var(--on-dark);transition:color .5s var(--ease)}
+body.light .chrome{color:var(--ink)}
+.topbar{top:0;left:0;right:0;height:clamp(58px,8vh,76px);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,3vw,44px);pointer-events:none}
+.topbar>*{pointer-events:auto}
+.chaps{display:flex;gap:clamp(12px,1.6vw,26px);flex:1;max-width:calc(50% - 80px);overflow:hidden}
+.fitw{width:100%}
+.chaps a{white-space:nowrap;font:400 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.7;position:relative;padding:5px 0;text-shadow:0 1px 10px rgba(0,0,0,.45);transition:opacity .3s}
+body.light .chaps a{text-shadow:none}
+.chaps a:hover,.chaps a.on{opacity:1}
+.chaps a.on::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor}
+.logo{position:absolute;left:50%;transform:translateX(-50%);display:block}
+.logo img{height:clamp(22px,2.5vw,32px);width:auto}
+body.light .logo img{filter:invert(1)}
+.count{flex:1;text-align:right;font:400 11px var(--sans);letter-spacing:.24em;font-variant-numeric:tabular-nums;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+body.light .count{text-shadow:none}
+.readout{left:clamp(18px,3vw,44px);bottom:clamp(20px,3.4vh,36px);font:400 10px/1.6 var(--sans);letter-spacing:.26em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.45);max-width:34vw}
+.readout b{font-weight:500;display:block}
+.readout span{opacity:.7}
+body.light .readout{text-shadow:none}
+.pnav{left:50%;transform:translateX(-50%);bottom:clamp(14px,2.6vh,30px);display:flex;align-items:center;gap:6px;text-shadow:0 1px 12px rgba(10,7,4,.7)}
+body.light .pnav{text-shadow:none}
+.pnav button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:20px;opacity:.85;transition:opacity .3s,transform .3s var(--ease)}
+.pnav button:hover{opacity:1}
+.pnav button:disabled{opacity:.2;cursor:default}
+.pnav .lab{font:400 9px var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.75;min-width:120px;text-align:center}
+.prog{left:0;bottom:0;height:2px;background:var(--signal);transition:width .7s var(--ease)}
+.edge{position:fixed;top:12vh;bottom:12vh;width:16vw;z-index:10;cursor:pointer}
+.edge.l{left:0;cursor:w-resize}.edge.r{right:0;cursor:e-resize}
+.hint{right:clamp(18px,3vw,44px);bottom:clamp(20px,3.4vh,36px);font:400 9px var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.5}
+@media(max-width:1240px){.chaps{gap:10px;max-width:calc(50% - 50px)}.chaps a{font-size:9px;letter-spacing:.1em}}
+@media(max-width:900px){.chaps{display:none}}
+@media(max-width:900px){.split,.split.rev{grid-template-columns:1fr;grid-template-rows:42% 58%}.split.rev .media{order:0}.split .text{padding:24px var(--padx) 90px;justify-content:flex-start}.row.c3,.row.c4,.row.g6{grid-template-columns:repeat(2,minmax(0,1fr));--ih:20vh}.nums{grid-template-columns:repeat(3,minmax(0,1fr))}.clients{grid-template-columns:repeat(2,minmax(0,1fr))}.cols3,.steve3,.team{grid-template-columns:1fr}.drc{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:28px}.recog{columns:1}.hint,.readout{display:none}}
+
+html[data-pt="charcoal"] .paper{--signal:#E0573F}
+
+.dx2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(30px,5vw,90px);margin-top:clamp(28px,5vh,56px)}
+.dx2 h3{font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;margin:0;padding-bottom:12px;border-bottom:1px solid currentColor}
+.dx2 .lead{margin-top:22px}
+@media(max-width:900px){.dx2{grid-template-columns:1fr}}
+.pw1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.1fr);gap:clamp(28px,3.5vw,64px);align-items:center}
+.pw1 img{display:block;width:100%;height:auto;max-height:70vh;object-fit:contain}
+.pw1 ul{list-style:none;margin:clamp(18px,3vh,32px) 0 0;padding:0;border-top:1px solid var(--line-d)}
+.pw1 li{font:300 clamp(.9rem,1.1vw,1.1rem)/1.45 var(--sans);padding:clamp(8px,1.3vh,13px) 0;border-bottom:1px solid var(--line-d);text-wrap:pretty}
+.paper .pw1 ul,.paper .pw1 li{border-color:var(--line)}
+@media(max-width:900px){.pw1{grid-template-columns:1fr}}
+.gp3{list-style:none;margin:clamp(22px,4vh,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,40px)}
+.gp3 img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line)}
+.gp3 b{display:block;margin-top:14px;padding-top:12px;border-top:2px solid currentColor;font-family:var(--title);font-weight:var(--title-weight);letter-spacing:var(--title-spacing);font-size:clamp(1.2rem,2vw,1.9rem)}
+
+.hero .gimg{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.1s var(--ease)}.hero .gimg.on{opacity:1}.hero .gimg img{width:100%;height:100%;object-fit:cover}
+.lfb{position:absolute;inset:0;display:flex;flex-direction:column;padding:clamp(64px,10vh,100px) var(--padx) clamp(84px,12vh,120px);gap:clamp(12px,2vh,22px)}.lfb .eb{margin:0 0 6px}.lfb .t3{margin:0}.lfb img{flex:1;min-height:0;width:100%;object-fit:contain;object-position:center}
+.hero .gimg .amlab{position:absolute;right:var(--padx);bottom:clamp(92px,14vh,136px);z-index:6;margin:0;font:400 11px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:#fff;text-shadow:0 1px 3px rgba(16,12,8,.5),0 2px 24px rgba(16,12,8,.5)}
+.row.eqh .im{height:auto!important;aspect-ratio:auto!important;background:none}.row.eqh .im img{position:static;width:100%;height:auto;max-height:none;object-fit:contain;display:block}
+.story3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,56px);margin-top:clamp(24px,4vh,48px);border-top:1px solid var(--line);padding-top:clamp(18px,3vh,30px)}.story3 p{margin:0;font:300 clamp(.95rem,1.25vw,1.2rem)/1.55 var(--sans);text-wrap:pretty}
+@media(max-width:900px){.story3{grid-template-columns:1fr}}
+.edbar .ed-go,.edbar .ed-tools{display:none!important}</style>
+</head>
+<body>
+<template id="__bundler_thumbnail" data-bg-color="#1d1b19"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><text x="600" y="470" text-anchor="middle" font-family="sans-serif" font-weight="300" font-size="220" fill="#F4EFE7">ai3</text></svg></template>
+<main id="deck">
+
+<!-- ================= INTRO ================= -->
+<section class="slide hero ink" data-ch="Intro" data-title="Cover" data-screen-label="01 Cover" style="background:#2B2926">
+<div class="cap"><p class="eb">New River · Shortlist interview · September 29, 2026</p><h1 class="t1">laugh. listen. respond.</h1></div>
+</section>
+
+<section class="slide hero ink" data-ch="Intro" data-title="We’re ai3" data-screen-label="02 We're ai3">
+<img class="bg" data-src="newriver/iv-02-1.jpg" alt="">
+<div class="shade"></div>
+<div class="cap"><h2 class="t1">We’re ai3.</h2><p class="lead">We use the power of design to create impactful spaces to work, play, eat, and relax.</p></div>
+</section>
+
+<section class="slide hero ink" data-ch="Intro" data-title="It all started with fish" data-screen-label="03 Fish">
+<img class="bg" data-src="newriver/iv-03-1.jpg" alt="">
+<div class="shade"></div>
+<div class="cap"><h2 class="t1">It all started with fish.</h2><p class="lead">architecture + interiors + client</p></div>
+</section>
+
+<section class="slide paper" data-ch="Intro" data-title="Purpose" data-screen-label="04 Purpose">
+<div class="frame"><h2 class="t2" style="max-width:18ch">The strongest design expresses a client’s purpose.</h2>
+<ul class="words"><li>Purpose.</li></ul>
+<p class="lead">In our Culture, our Approach, and in our Work.</p></div>
+</section>
+
+<!-- ================= ABOUT ai3 ================= -->
+<section class="slide paper" data-ch="ai3" data-title="Clients" data-screen-label="05 Clients">
+<div class="frame"><p class="eb">Purpose in our work</p><h2 class="t2">a few names you may know.</h2>
+<ul class="clients">
+<li class="hd">Hospitality + lifestyle</li>
+<li>Marriott International</li><li>Hilton Hotels &amp; Resorts</li><li>IHG Hotels &amp; Resorts</li><li>Hotel Indigo</li><li>Tribute Portfolio</li><li>DoubleTree by Hilton</li><li>Metlife</li><li>Reynolds Lake Oconee</li><li>Intown Golf Club</li><li>Starwood Capital Group</li><li>Fontainebleau Development</li><li>Daniel Communities</li><li>USAA</li><li>cooper's Hawk</li><li></li><li></li>
+<li class="hd">Corporate + development</li>
+<li>Microsoft</li><li>Coca-Cola</li><li>Porsche Cars North America</li><li>Chick-fil-A</li><li>Walmart</li><li>Atlanta Hawks</li><li>Georgia-Pacific</li><li>Kimberly-Clark</li><li>Hines</li><li>Jamestown</li><li>Portman Holdings</li><li>Cushman &amp; Wakefield</li><li>Colliers</li><li>Highwoods Properties</li><li></li><li></li>
+</ul>
+<p class="small" style="color:var(--muted)">Selected ai3 client, development + hospitality brand relationships.</p></div>
+</section>
+
+<section class="slide ink" data-ch="ai3" data-title="By the numbers" data-screen-label="06 By the numbers">
+<div class="frame"><p class="eb">Purpose in our culture</p><h2 class="t2">ai3&nbsp;&nbsp;</h2>
+<div class="nums"><div><b>22</b><span>Years in business</span></div><div><b>98</b><span>Restaurants</span></div><div><b>22</b><span>Hotels</span></div><div><b>18</b><span>Private clubs</span></div><div><b>13</b><span>Prototypes</span></div></div>
+<p class="eb" style="margin:clamp(30px,6vh,60px) 0 0">Recognition</p>
+<ul class="recog" style="margin-top:12px"><li>66 Industry Design Awards</li><li>2x ADAC SE Designer of the Year Finalist</li><li>“GA Design Award”</li><li>NEWH Top ID Firm Nominee + EESA Award</li><li>Golf Inc. Magazine Amenity of the Year</li><li>8x Atlanta Magazine’s Most Powerful People</li><li>Lifetime Achievement Award from ASID</li><li>ULI Awards, Urban Design Commission</li></ul></div>
+</section>
+
+<section class="slide ink" data-ch="ai3" data-title="Purpose in our work" data-screen-label="07 Purpose in our work">
+<div class="frame"><p class="eb">Purpose in our work</p><h2 class="t2" style="max-width:24ch">By purpose, we really mean meaningful experiences and connections created by our work.</h2>
+<div class="row c3">
+<figure><div class="im"><img alt="" data-src="uploads/axis-wellness-images/axis-wellness-08.jpg"></div><figcaption>Axis wellness ·&nbsp;</figcaption></figure>
+<figure><div class="im"><img alt="" data-src="newriver/iv-07-2.jpg"></div><figcaption>The well<span style="font-size: 10.5px; letter-spacing: 2.52px; text-transform: uppercase; display: inline !important;"> · corporate amenity</span></figcaption></figure>
+<figure><div class="im"><img alt="" data-src="newriver/sw-36-1.jpg"></div><figcaption>marriott turnbury spa</figcaption></figure>
+</div></div>
+</section>
+
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="eat" data-screen-label="08 eat"><div class="collage"><img style="left:0%;top:0.43%;width:23.35%;height:48.11%" data-src="newriver/x-72.jpg" alt=""><img style="left:24.79%;top:67.24%;width:31.29%;height:32.76%" data-src="newriver/iv-08-1.jpg" alt=""><img style="left:24.91%;top:0.43%;width:31.29%;height:30.7%" data-src="newriver/iv-08-2.jpg" alt=""><img style="left:0%;top:51.68%;width:23.35%;height:48.11%" data-src="newriver/iv-08-4.jpg" alt=""><img style="left:57.88%;top:48.22%;width:42.12%;height:51.57%" data-src="newriver/iv-08-3.jpg" alt=""><img style="left:57.76%;top:0%;width:42.12%;height:44.86%" data-src="newriver/iv-08-5.jpg" alt=""><img style="left:24.79%;top:32.32%;width:31.41%;height:33.73%" data-src="newriver/iv-08-6.jpg" alt=""><span class="cw" style="left:2.05%;top:96.76%">eat</span></div></section>
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="relax" data-screen-label="09 relax"><div class="collage"><img style="left:0%;top:0%;width:37.52%;height:59.15%" data-src="newriver/iv-09-1.jpg" alt=""><img style="left:39.32%;top:0%;width:28.83%;height:29.19%" data-src="newriver/iv-09-2.jpg" alt=""><img style="left:70.08%;top:0%;width:29.92%;height:38.45%" data-src="newriver/iv-09-3.jpg" alt=""><img style="left:39.32%;top:66.12%;width:28.83%;height:33.88%" data-src="newriver/iv-09-4.jpg" alt=""><img style="left:70.08%;top:68.52%;width:29.92%;height:31.37%" data-src="newriver/iv-09-5.jpg" alt=""><img style="left:0%;top:60.68%;width:37.52%;height:39.22%" data-src="newriver/iv-09-6.jpg" alt=""><img style="left:39.32%;top:30.83%;width:28.83%;height:33.55%" data-src="newriver/iv-09-7.jpg" alt=""><img style="left:70.08%;top:39.76%;width:29.92%;height:26.69%" data-src="newriver/iv-09-8.jpg" alt=""><span class="cw" style="left:2.17%;top:56.43%">relax</span></div></section>
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="work" data-screen-label="10 work"><div class="collage"><img style="left:73.97%;top:71.98%;width:26.03%;height:28.02%" alt="" data-src="newriver/iv-10-7.jpg"><img style="left:0%;top:0%;width:30.17%;height:29.79%" alt="" data-src="newriver/iv-10-2.jpg"><img style="left:0%;top:31.89%;width:30.17%;height:35.33%" alt="" data-src="newriver/iv-10-3.jpg"><img style="left:73.97%;top:0%;width:25.79%;height:32.67%" alt="" data-src="newriver/iv-10-4.jpg"><img style="left:31.39%;top:0.11%;width:41.36%;height:51.61%" alt="" data-src="newriver/iv-10-5.jpg"><img style="left:0.12%;top:69.66%;width:30.17%;height:30.23%" alt="" data-src="newriver/iv-10-6.jpg"><img style="left:31.39%;top:55.37%;width:41.36%;height:44.63%" alt="" data-src="newriver/iv-10-1.jpg"><img style="left:73.97%;top:36.21%;width:25.79%;height:31.34%" alt="" data-src="newriver/iv-10-8.jpg"><span class="cw" style="left:21.9%;top:97.67%">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; work</span></div>
+</section>
+
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="play" data-screen-label="11 play"><div class="collage"><img style="left:70.01%;top:42.28%;width:29.75%;height:57.72%" alt="" data-src="newriver/iv-11-1.jpg"><img style="left:28.78%;top:53.23%;width:39.78%;height:46.77%" alt="" data-src="newriver/iv-11-2.jpg"><img style="left:28.78%;top:0.11%;width:39.78%;height:50.27%" alt="" data-src="newriver/iv-11-3.jpg"><img style="left:0%;top:0.11%;width:27.57%;height:32.09%" alt="" data-src="newriver/iv-11-4.jpg"><img style="left:70.01%;top:0%;width:29.99%;height:39.76%" alt="" data-src="newriver/iv-11-5.jpg"><img style="left:0%;top:33.84%;width:27.45%;height:66.16%" alt="" data-src="newriver/iv-11-6.jpg"><span class="cw" style="left:17.53%;top:97.37%">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; play</span></div>
+</section>
+
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="gather" data-screen-label="12 gather"><div class="collage"><img style="left:28.26%;top:0%;width:34.78%;height:44.07%" data-src="newriver/iv-12-1.jpg" alt=""><img style="left:0%;top:45.93%;width:38.41%;height:54.07%" data-src="newriver/iv-12-3.jpg" alt=""><img style="left:64.49%;top:37.8%;width:35.51%;height:62.2%" data-src="newriver/iv-12-4.jpg" alt=""><img style="left:0%;top:0.22%;width:26.69%;height:43.96%" data-src="newriver/iv-12-5.jpg" alt=""><img style="left:64.49%;top:0.33%;width:35.51%;height:35.27%" data-src="newriver/iv-12-6.jpg" alt=""><img style="left:39.98%;top:45.93%;width:23.07%;height:54.07%" data-src="newriver/iv-12-7.jpg" alt=""><span class="cw" style="left:1.81%;top:93.41%">gather</span></div>
+</section>
+
+<section class="slide ink s-col bleed" data-ch="ai3" data-title="dwell" data-screen-label="13 dwell"><div class="collage"><img style="left:44.75%;top:52.86%;width:55.25%;height:47.14%" data-src="newriver/iv-13-1.jpg" alt=""><img style="left:0%;top:52.86%;width:43.31%;height:47.14%" data-src="newriver/iv-13-2.jpg" alt=""><img style="left:50.66%;top:0%;width:49.34%;height:50.27%" data-src="newriver/iv-13-3.jpg" alt=""><img style="left:0%;top:0%;width:49.34%;height:50.27%" data-src="newriver/iv-13-4.jpg" alt=""><span class="cw" style="left:4.95%;top:48.76%">dwell</span></div>
+</section>
+
+<section class="slide paper" data-ch="ai3" data-title="Project team" data-screen-label="14 Project team">
+<div class="frame"><p class="eb">Project team</p><h2 class="t2">New River — ai3 Team</h2>
+<div class="team">
+<div><h3>Architecture</h3><p><b>Patrick Johnson</b><span>Partner-in-Charge, Design Director</span></p><p><b>Kellen Minor</b><span>Principal, Architect · Team Leader</span></p><p><b>Adrienne Coleman</b><span>Associate, Architect · REVIT Leader</span></p><p><b>Chris Carfora</b><span>Principal, Architect</span></p><p><b>Joey Lee</b><span>Intern Architect</span></p></div>
+<div><h3>Interiors</h3><p><b>Lucy Aiken-Johnson</b><span>Partner in Charge; Design Director</span></p><p><b>Ann Marie-Lima</b><span>Principal; Point of Contact, External Liaison to Owner</span></p><p><b>Brittany Thomas</b><span>Interior Designer; Point of Contact, External Liaison to Owner</span></p><p><b>Emily Banks</b><span>Associate, Interior Designer</span></p><p><b>Carolina Ferreira</b><span>Interior Designer</span></p></div>
+</div></div>
+</section>
+
+<!-- ================= SELECTED WORK ================= -->
+<section class="slide s-work ink has-story" data-ch="Work" data-title="Flagler Arts District" data-screen-label="15 Flagler Arts District">
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-02-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Street experience"><img data-src="newriver/sw-03-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Massing and frontage"><img data-src="newriver/sw-04-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Market arrival"><img data-src="newriver/sw-05-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="District perspective"><img data-src="newriver/sw-06-1.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>ai3 helps activate a historic Fort Lauderdale warehouse district of galleries and studios — layering housing, live-work, and creative office to invigorate its day and night life.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">Flagler Arts District</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="Ceres" data-screen-label="27 Ceres">
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-40-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-41-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-42-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-43-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-44-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-45-1.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>A place where life is intentionally cultivated — through food, landscape, architecture, and shared experience. CERES’ initial phase includes four commercial buildings, each playing a distinct but interdependent role; two retail buildings activate the public realm through color and visible interiors, their architecture influenced by classic French design with a colonnade marching along the street front. At its center, the Incubator — the engine of innovation — showcases chefs, experimentation, and culinary culture, designed as a lantern that glows at night between New Orleans–inspired columns and ample outdoor seating.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">Ceres</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="Turnberry Resort Spa" data-screen-label="26 Turnberry Resort Spa">
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-32-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-33-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-34-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-35-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-36-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-37-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-38-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wellness"><img data-src="newriver/sw-39-1.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>A wellness retreat in Fort Lauderdale shaped by light, water and natural texture. Guests arrive through a warm reception screened in timber lattice, then move along softly lit passages of limestone, wood and plaster to steam, sauna and quiet relaxation lounges. At the heart of the plan, a sculptural stair spirals above a reflecting pool, drawing daylight down through the building. Fitness, retail and lounge spaces share the same calm, sun-washed palette — a place to slow down, restore and reconnect.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">Turnberry Resort Spa</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="Axis Wellness" data-screen-label="Axis Wellness v2">
+<figure class="gimg" data-label="Lobby"><img data-src="uploads/axis-wellness-images/axis-wellness-01.jpg" alt=""></figure>
+<figure class="gimg" data-label="Lobby"><img data-src="uploads/axis-wellness-images/axis-wellness-02.jpg" alt=""></figure>
+<figure class="gimg" data-label="Lounge + bar"><img data-src="uploads/axis-wellness-images/axis-wellness-03.jpg" alt=""></figure>
+<figure class="gimg" data-label="Lounge + bar"><img data-src="uploads/axis-wellness-images/axis-wellness-04.jpg" alt=""></figure>
+<figure class="gimg" data-label="Fireside lounge"><img data-src="uploads/axis-wellness-images/axis-wellness-05.jpg" alt=""></figure>
+<figure class="gimg" data-label="Fitness"><img data-src="uploads/axis-wellness-images/axis-wellness-06.jpg" alt=""></figure>
+<figure class="gimg" data-label="Café"><img data-src="uploads/axis-wellness-images/axis-wellness-07.jpg" alt=""></figure>
+<figure class="gimg" data-label="Fitness terrace"><img data-src="uploads/axis-wellness-images/axis-wellness-08.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>axis wellness is designed as a still point in the day, a space where movement and rest are given equal weight. Natural materials and a quiet, grounded palette slow the pace on arrival, framing focused zones for practice and recovery. The result is an environment that supports the body and clears the mind, calm by design.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">Axis Wellness</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="The Quarter" data-screen-label="20 The Quarter">
+<figure class="gimg" data-label="Architecture"><img data-src="newriver/sw-20-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Shared outdoor spaces"><img data-src="newriver/sw-21-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Shared outdoor spaces"><img data-src="newriver/sw-21-2.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>Considered one of the largest urban infill sites in Atlanta, the development is organized in a “town square setting,” and will pay homage to the industrial roots of the area. Engaged by Cannon Equities, ai3 was charged with developing the master plan and providing full architectural services for this mixed-use development. In addition to office, retail and restaurants, the development features a public amphitheater, pond, pocket parks, and food truck parking. Residential units, including an apartment complex, are combined with a collection of townhouse, flats, and city homes.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">The Quarter</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="The Publisher" data-screen-label="23 The Publisher">
+<figure class="gimg" data-label="Tribute Portfolio"><img data-src="newriver/img/publisher-front-desk.jpg" alt="Lobby front desk with brass-clad counter, blue bookshelves and glass pendants"></figure>
+<figure class="gimg" data-label="Public spaces and guest room"><img data-src="newriver/img/publisher-lobby-collage.jpg" alt="Lobby fireplace lounge with P monogram, brass front desk and library shelving"></figure>
+<figure class="gimg" data-label="Public spaces and guest room"><img data-src="newriver/sw-27-2.jpg" alt=""></figure>
+<figure class="gimg" data-label="Guest suite"><img data-src="newriver/img/publisher-suite.jpg" alt="Guest suite with dark paneling, leather Chesterfield and brass chandelier"></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>Set in historic downtown Fredericksburg on the site of the city’s oldest newspaper, The Free Lance–Star, The Publisher takes its story from the printed word. The interiors draw on Fredericksburg’s patriotic past with bold contrasts and locally sourced art — a sophisticated lobby, a destination bar and restaurant, and guest rooms with channeled leather headboards and campaign-detailed casegoods. A Tribute Portfolio hotel meant to be the town’s new central connector, where guests and locals come to share their own stories.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">The Publisher</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="Hotel Phoenix" data-screen-label="Hotel Phoenix">
+<figure class="gimg on" data-label="Exterior"><img  alt="" data-src="newriver/img/phx-01c.jpg"></figure>
+<figure class="gimg" data-label="King guest room"><img alt="" data-src="uploads/hotelphoenix-homepage-atlantaineverydatail-6a021cc9e5dfa.webp"></figure>
+<figure class="gimg" data-label="Double queen room"><img alt="" data-src="uploads/hotelphoenix-homepage-gallery-03-69ef91ec45835.jpg"></figure>
+<figure class="gimg" data-label="Suite"><img alt="" data-src="uploads/hotelphoenix-homepage-gallery-06-69ef91efb15d5.jpg"></figure>
+<figure class="gimg" data-label="Bedside detail"><img alt="" data-src="uploads/untitled-design---2025-12-15t145323_919-69406784a2305.jpg"></figure>
+<figure class="gimg" data-label="Guest bath"><img alt="" data-src="uploads/hotelphoenix-accomodations-deluxeguest-rooms-3-69456d5ebafe0.jpg"></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>Rising on Mile Zero, the historic terminus of the Western &amp; Atlantic Railroad where Atlanta began, Hotel Phoenix is the first hotel to open at Centennial Yards, the 50-acre redevelopment of downtown’s former rail yards. The 19-story, 292-room hotel draws on the city’s rail history, balancing a modern industrial edge with the civic landmarks around it. Guest rooms take their cue from luxury train travel: fluted panels, tufting and leather strap details, walnut with bronze accents and sculptural smoked-glass lighting, all framed by views of the skyline and Mercedes-Benz Stadium.</p></div>
+<div class="wcap"><div><p class="eb">Exterior</p><h2 class="t2">Hotel Phoenix</h2><p class="credit">Hospitality · Atlanta · 2025* work by Brittany Thomas at TVS Design</p></div><span class="gc">01 / 06</span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="St. Albans Sporting Club" data-screen-label="25 St. Albans Sporting Club">
+<figure class="gimg" data-label="Private club"><img data-src="newriver/sw-30-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Dining and gathering"><img data-src="newriver/sw-31-1.jpg" alt=""></figure>
+<figure class="gimg" data-label="Dining and gathering"><img data-src="newriver/sw-31-2.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>Rooted in the storied traditions of outdoor sporting life and inspired by its namesake text, St. Albans Sporting Club is an urban retreat; where the rugged great outdoors meets the refinement of elevated hospitality. At St. Albans, discerning hunters, anglers, and adventure seekers will find a gathering place that honors their pursuits — a destination where tales of the field are exchanged over exceptional cuisine, and where every detail evokes both reverence for nature and the thrill of what lies beyond the next trailhead. The interiors draw from the quiet majesty of the English countryside, subtly nodding to Tudor sensibilities — using pastoral tapestry inspired artwork, live-sawn wood beams, and textured flagstone floors. These timeworn legacy materials are elevated by sleek metal accents, contemporary furnishings, and integrated lighting — merging old-world charm with a modern explorer’s edge. A natural palette, pulled from riverbeds, forests, and upland fields, grounds the space in authenticity, while safari-inspired elements and bespoke, globally inspired details speak to a spirit of wanderlust and exploration. At once sophisticated and welcoming, St. Albans offers members a “base camp” in the heart of the city — a space that aims to “honor both nature and tradition” (The Book of St. Albans), while fostering connection and camaraderie amongst fellow stewards of the wild.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">St. Albans Sporting Club</h2></div><span class="gc"></span></div>
+</section>
+
+<section class="slide s-work ink has-story" data-ch="Work" data-title="The Perlant" data-screen-label="The Perlant">
+<figure class="gimg" data-label="Entry"><img data-src="uploads/Archive%206/Perlant_Entry-Option-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Living room"><img data-src="uploads/Archive%206/Perlant_LivingRm-Fire-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Bar and lounge"><img data-src="uploads/Archive%206/Perlant_Bar-to-Lounge-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Bar"><img data-src="uploads/Archive%206/Perlant_Bar-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Library"><img data-src="uploads/Archive%206/Perlant_Library-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Dining room"><img data-src="uploads/Archive%206/Perlant_DiningRm-Drapery-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Private dining"><img data-src="uploads/Archive%206/Perlant_PDR-1920x970.jpg" alt=""></figure>
+<figure class="gimg" data-label="Wine cellar"><img data-src="uploads/Archive%206/Perlant_Wine-Cellar-1920x970.jpg" alt=""></figure>
+<div class="shade low"></div>
+<div class="pstory"><p>As an effervescent, community-minded wine club, The Perlant celebrates and educates members in the beauty found within the subtle nuances and terroir of each bottle. Sowed within the soil of a bustling, ever-evolving metropolis, it radiates as a symbol of serenity — an undeniable invitation inward to a communal moment of reprieve, where the club’s cultural core lives in humility, generosity, and kindness. Fluid forms inspired by the organic curves of a grapevine meet rich textures and warm tones; light woods are accented with washed rust and sage, and textured plaster finishes are bathed in soft, filtered light. Above all, The Perlant yields an inclusive environment for both the wine novice and the connoisseur to rendezvous for the sake of collective enrichment and delight.</p></div>
+<div class="wcap"><div><p class="eb"></p><h2 class="t2">The Perlant</h2><p class="credit">Interior Design · Atlanta · 2025</p></div><span class="gc"></span></div>
+</section>
+
+
+<!-- ================= APPROACH ================= -->
+<section class="slide ink" data-ch="Approach" data-title="Our process" data-screen-label="28 Our process">
+<div class="frame"><p class="eb">Purpose in our approach</p><h2 class="t2">Our process</h2>
+<p class="seq">listen. <i>→</i><i><br></i> define. <i>→</i> explore. <i>→</i> evolve. <i>→</i> deliver.</p>
+<p class="lead">listen first. make decisions visible. keep the idea intact.</p></div>
+</section>
+
+
+<section class="slide hero ink" data-ch="Approach" data-title="Day One workshop" data-screen-label="31 Day One workshop">
+<img class="bg" data-src="newriver/iv-18-3.jpg" alt="">
+<div class="shade"></div>
+<div class="cap"><p class="eb">Purpose in our approach</p><h2 class="t2" style="max-width:20ch">Everything we do springs from our clients’ goals.</h2><p class="lead">Our Day One workshop is a tangible expression of this thinking.</p></div>
+</section>
+
+<section class="slide paper" data-ch="Approach" data-title="02 Define" data-screen-label="32 Define">
+<div class="split rev"><div class="media fit"><img alt="" data-src="newriver/iv-21-1.jpg"></div>
+<div class="text"><p class="eb">02 / Define</p><h2 class="t2"></h2><h2 class="t2" style="font-family: Archivo, system-ui, sans-serif; font-weight: 400; letter-spacing: -0.499066px; outline: rgb(224, 87, 63) solid 0.760726px; text-shadow: none;">Day One Workshop</h2>
+<ul class="words col" style="font-size:clamp(1.1rem,1.8vw,1.7rem)"><li>purpose</li><li>story</li><li>journey</li><li>experience</li><li>success</li></ul>
+<p class="lead">The vision becomes the filter for every design decision that follows.</p></div></div>
+</section>
+
+<section class="slide paper" data-ch="Approach" data-title="Schematic Design" data-screen-label="33 Schematic Design v2">
+<div class="frame"><div class="head"><div><p class="eb">Schematic Design</p><h2 class="t2">Story, Journey, Planning</h2></div></div>
+<div class="row c3 eqh" style="--ih:46vh;grid-template-columns:1.545fr 1.273fr 1.566fr">
+<figure><div class="im fit"><img data-src="newriver/iv-23-1.jpg" alt=""></div><figcaption>Concept : statement of design goals</figcaption></figure>
+<figure><div class="im fit"><img data-src="newriver/iv-24-1.jpg" alt=""></div><figcaption>Journey Map : Member Experience</figcaption></figure>
+<figure><div class="im fit"><img data-src="newriver/iv-25-1.jpg" alt=""></div><figcaption>Concept : overall character, look &amp; feel</figcaption></figure>
+</div></div>
+</section>
+
+<section class="slide ink" data-ch="Approach" data-title="Design evolution" data-screen-label="35 Design evolution">
+<div class="frame"><p class="eb">Design Development · Explore → Evolve</p><h2 class="t2">Design Evolution : from concept to renderings</h2>
+<div class="row c3" style="--ih:44vh">
+<figure><div class="im"><img data-src="newriver/iv-30-1.jpg" alt=""></div><figcaption>massing</figcaption></figure>
+<figure><div class="im"><img data-src="newriver/iv-30-2.jpg" alt=""></div><figcaption>sketch</figcaption></figure>
+<figure><div class="im"><img data-src="newriver/iv-30-3.jpg" alt=""></div><figcaption>render</figcaption></figure>
+</div></div>
+</section>
+
+<section class="slide hero ink" data-ch="Approach" data-title="The great hall" data-screen-label="36 Great hall">
+<img class="bg" data-src="newriver/img/stalbans-great-hall-fireplace.jpg" alt=""><div class="shade low"></div>
+<div class="cap low"><p class="eb">Design Development</p><h2 class="t3">St. Albans Sporting Club: the great hall</h2></div>
+</section>
+
+
+<!-- ================= NEW RIVER ================= -->
+
+<section class="slide ink" data-ch="New River" data-title="Curiosity before certainty" data-screen-label="40 Curiosity">
+<div class="frame"><p class="eb"><br></p><h2 class="t1" style="max-width:16ch">and then we started thinking about your site.</h2>
+<p class="lead"><br></p></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="The program" data-screen-label="51 The program">
+<div class="split rev"><div class="media fit"><img data-src="newriver/img/program-stack.jpg" alt="Conceptual program stack: residences, hotel, amenity deck, parking, retail + arrival"></div>
+<div class="text"><p class="eb">The opportunity</p><h2 class="t2">the program.</h2><p class="lead" style="margin-top:14px">mixed-use complexity.<br>one experience.</p>
+<ul class="words col" style="font-size:clamp(1.1rem,1.8vw,1.7rem)"><li>145 hotel keys</li><li>120 residences</li><li>retail + arrival lobbies</li><li>elevated wellness amenity deck</li><li>4 parking levels</li><li>24 tower stories above amenities</li></ul>
+<p class="eb" style="margin:26px 0 0">Early program study</p></div></div>
+</section>
+
+<section class="slide ink" data-ch="New River" data-title="01 Our purpose" data-screen-label="Our purpose">
+<div class="frame"><p class="eb">designing the experience</p><h2 class="t2" style="margin-top:clamp(10px,1.6vh,18px)">our purpose.</h2>
+<ul class="nlist two" style="max-width:1100px">
+<li><b>wellness</b><span>drives everything</span></li>
+<li><b>a sense of place</b><span>grounded in place, the New River’s Riverwalk District</span></li>
+</ul></div>
+</section>
+
+
+<section class="slide ink" data-ch="New River" data-title="01 Grounded in place" data-screen-label="Grounded in place">
+<div class="frame"><div class="pw1"><div><h3 class="t3">grounded in place</h3><ul><li>Sits on the New River, within the city’s pioneer heritage and waterfront promenades</li><li>Design layers the site’s eras into a sense of place that deepens over time</li><li>Extends the Riverwalk greenway from Esplanade Park up through the building</li></ul></div><img alt="Site diagram: tower on the New River linking Esplanade Park and the Riverwalk" data-src="newriver/img/place-diagram-v2.jpg"></div></div>
+</section>
+
+<section class="slide ink" data-ch="New River" data-title="01 A wellness loop" data-screen-label="A wellness loop">
+<div class="frame"><div class="pw1"><div><h3 class="t3">a wellness loop</h3><ul><li>Continuous 6′ walking and running loop on the amenity deck, ~1/8 mile per lap</li><li>Pool and social wellness, yoga and meditation deck, fitness lawn, recovery gardens</li><li>A circular ramp ties the loop directly into the public Riverwalk</li></ul></div><img src="newriver/img/wellness-integration-v4.jpg" alt="Amenity deck diagram: wellness loop with pool, yoga deck, gardens and fitness zones"></div></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="02 Guiding principles" data-screen-label="Guiding principles v2">
+<div class="frame"><p class="eb">designing the experience</p><h2 class="t2" style="margin-top:clamp(10px,1.6vh,18px)">define our guiding principles.</h2>
+<p class="lead" style="margin-top:14px">(give design its soul)</p>
+<ul class="gp3"><li><img src="newriver/img/gp-restorative-render.jpg" alt="Garden terrace with running track, lounge seating and river views"><b>restorative journey</b></li><li><img src="newriver/img/gp-social-render.jpg" alt="Pool deck with cabanas and loungers overlooking the river"><b>social wellness</b></li><li><img src="newriver/img/gp-rituals-render.jpg" alt="Sunset yoga on the garden lawn overlooking the river"><b>outdoor rituals</b></li></ul>
+<p class="small">Based on research on wellness hotels.</p></div>
+</section>
+
+<section class="slide ink" data-ch="New River" data-title="03 Develop the concept" data-screen-label="Develop the concept">
+<div class="frame"><p class="eb">designing the experience</p><h2 class="t2" style="margin-top:clamp(10px,1.6vh,18px)">develop the concept.</h2>
+<div class="dx2">
+<div><h3>Recovery</h3><p class="lead">recovery is the bridge that connects it all:</p><ul class="words" style="font-size:clamp(1.1rem,1.9vw,1.8rem)"><li>movement +</li><li>nutrition +</li><li>mindfulness +</li><li>nature +</li><li>connection +</li><li>sleep</li></ul></div>
+<div><h3>The disconnect</h3><ul class="words col" style="font-size:clamp(1.1rem,1.9vw,1.8rem);margin-top:26px"><li>the downshift</li><li>low light</li><li>acoustic softness</li><li>nature connection</li></ul><p class="small"><br></p></div>
+</div></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="03 Concept · look + feel" data-screen-label="LF Concept A">
+<div class="lfb"><div class="lfh"><p class="eb">Develop the concept</p><h3 class="t3">concept · look + feel <span style="opacity:.55">· textured</span></h3></div><img data-src="newriver/img/lf-concept-a.jpg" alt="Mood board: salty grain texture, natural structure, urban riverway, warm tones"></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="03 Concept · look + feel" data-screen-label="LF Concept B">
+<div class="lfb"><div class="lfh"><p class="eb">Develop the concept</p><h3 class="t3">concept · look + feel <span style="opacity:.55">· warm textured</span></h3></div><img data-src="newriver/img/lf-concept-b.jpg" alt="Mood board: endless views, stability in form, restore + revive, rhythmic patterns"></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="03 Lobby · look + feel" data-screen-label="LF Lobby">
+<div class="lfb"><div class="lfh"><p class="eb">Develop the concept</p><h3 class="t3">lobby · look + feel <span style="opacity:.55">· warm</span></h3></div><img data-src="newriver/img/lf-lobby.jpg" alt="Mood board: start the journey, high contrast, connection to nature, dynamic curves, rich wood tones"></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="03 Pool deck · look + feel" data-screen-label="LF Pool deck">
+<div class="lfb"><div class="lfh"><p class="eb">Develop the concept</p><h3 class="t3">pool deck · look + feel <span style="opacity:.55">· relaxed</span></h3></div><img data-src="newriver/img/lf-pool.jpg" alt="Mood board: social wellness, fluidity, organic forms, rest"></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="04 Design the journey" data-screen-label="Design the journey v2">
+<div class="frame"><p class="eb">designing the experience</p><h2 class="t2" style="margin-top:clamp(10px,1.6vh,18px)">design the journey.</h2>
+<ul class="nlist" style="max-width:1100px;grid-template-columns:none">
+<li><em>01</em><b>arrival</b><span></span></li>
+<li><em>02</em><b>outdoor nature experience | connection to the river</b><span>river deck + amenity level · bridge</span></li>
+<li><em>03</em><b>lobby engagement</b><span></span></li>
+<li><em>04</em><b>guest | resident</b><span></span></li>
+<li><em>05</em><b>amenity opportunities</b><span>spa</span></li>
+</ul></div>
+</section>
+
+<section class="slide hero ink" data-ch="New River" data-title="01 Arrival" data-screen-label="Arrival v2">
+<figure class="gimg"><img data-src="newriver/img/nr-arrival-3.jpg" alt="Aerial view of the tower, amenity bridge and Riverwalk park"></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-arrival-11.jpg" alt="Tower rising above the palms from street level"></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-arrival-10.jpg" alt="Porte-cochère arrival at sunset with valet, bamboo screen facade and open lobby"></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-arrival-12.jpg" alt="Lobby with reception, café bar and lounge seating opening to the river"></figure>
+<div class="shade"></div>
+<div class="cap low"><p class="eb">04 / Design the journey</p><h2 class="t2">arrival.</h2></div>
+</section>
+
+<section class="slide hero ink" data-ch="New River" data-title="02 Outdoor nature | river" data-screen-label="Outdoor nature and river">
+<figure class="gimg"><img data-src="newriver/img/nr-nature-1.jpg" alt="Garden drive and Riverwalk along the New River beneath the amenity deck"></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-nature-2.jpg" alt="Tower and podium from the river's edge with the amenity bridge and glass ramp tower"></figure>
+<figure class="gimg"><img data-src="newriver/img/gp-restorative-render.jpg" alt="Garden terrace with running track, lounge seating and river views"></figure>
+<figure class="gimg"><img data-src="newriver/img/gp-social-render.jpg" alt="Pool deck with cabanas and loungers overlooking the river"></figure>
+<figure class="gimg"><img data-src="newriver/img/gp-rituals-render.jpg" alt="Sunset yoga on the garden lawn overlooking the river"></figure>
+<div class="shade"></div>
+<div class="cap low"><p class="eb">04 / Design the journey</p><h2 class="t2">outdoor nature experience | connection to the river.</h2></div>
+</section>
+
+<section class="slide hero ink" data-ch="New River" data-title="04 Guest | resident" data-screen-label="Guest vs resident">
+<figure class="gimg"><img data-src="newriver/img/nr-gvr-4.jpg" alt="guest suite"><p class="amlab">guest suite</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-gvr-1.jpg" alt="guest suite · bedroom"><p class="amlab">guest suite · bedroom</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-gvr-7.jpg" alt="residence suite"><p class="amlab">residence suite</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-gvr-2.jpg" alt="guest balcony"><p class="amlab">guest balcony</p></figure>
+<div class="shade"></div>
+<div class="cap low"><p class="eb">04 / Design the journey</p><h2 class="t2">guest | resident.</h2></div>
+</section>
+
+<section class="slide hero ink" data-ch="New River" data-title="05 Amenity opportunities" data-screen-label="Amenity opportunities v2">
+<figure class="gimg"><img data-src="newriver/img/nr-amen-lobby2.jpg" alt="Lobby with reception desk, lounge seating and river views"><p class="amlab">spa reception</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-2.jpg" alt="locker room"><p class="amlab">locker room</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-3.jpg" alt="fitness studio"><p class="amlab">fitness studio</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-4.jpg" alt="spa pool + rain showers"><p class="amlab">spa pool + rain showers</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-5.jpg" alt="yoga studio"><p class="amlab">yoga studio</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-6.jpg" alt="relaxation lounge"><p class="amlab">relaxation lounge</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-7.jpg" alt="hydrotherapy pool"><p class="amlab">hydrotherapy pool</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-8.jpg" alt="treatment room"><p class="amlab">treatment room</p></figure>
+<figure class="gimg"><img data-src="newriver/img/nr-amen-10.jpg" alt="private treatment suite"><p class="amlab">private treatment suite</p></figure>
+<div class="shade"></div>
+<div class="cap low"><p class="eb">04 / Design the journey</p><h2 class="t2">amenity opportunities.</h2></div>
+</section>
+
+<section class="slide paper" data-ch="New River" data-title="From idea to concept" data-screen-label="41 Idea to concept v2">
+<div class="frame"><p class="eb">New River / Process</p><h2 class="t1">from idea to concept.</h2>
+<p class="seq">ideas. sketches. AI.&nbsp;</p>
+<div class="row c3" style="--ih:36vh">
+<figure><div class="im"><img alt="Pen sketch of the New River tower" data-src="newriver/img/nr-idea-sketch.jpg"></div><figcaption><b>01</b>idea · sketch</figcaption></figure>
+<figure><div class="im"><img alt="White study model of the tower and podium" data-src="newriver/img/nr-white-model.jpg"></div><figcaption><b>02</b>development · white model</figcaption></figure>
+<figure><div class="im"><img alt="Final rendering of the tower on the New River" data-src="newriver/img/nr-final-render.jpg"></div><figcaption><b>03</b>final · rendering</figcaption></figure>
+</div>
+<p class="lead"><br></p></div>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="slide paper" data-ch="Schedule" data-title="Phase 1 + Phase 2" data-screen-label="53 Schedule overview">
+<div class="frame"><p class="eb">New River / Project schedule</p><h2 class="t2">phase 1 + phase 2.</h2>
+<p class="small" style="margin-top:12px;color:var(--ink)">Concept Design through DRC / Entitlement · <b style="font-weight:500">Working assumption — NTP / Kick-off: October 5, 2026</b></p>
+<div class="ov">
+<div class="months"><span>Oct 2026</span><span>Nov</span><span>Dec</span><span>Jan 2027</span><span>Feb / Mar</span></div>
+<div class="lane"><div class="ph" style="left:1%;width:54%"><b>Phase 1</b><span>Kick-off | Day One Workshop | Concept Design</span><em>Oct. 5 – Dec. 18 | 11 weeks</em></div><div class="mk" style="left:58%">Year-end</div></div>
+<div class="lane"><div class="ph" style="left:60%;width:39%"><b>Phase 2</b><span>DRC | Entitlement</span><em>Jan. 4 – Mar. 12 | 10 weeks</em></div><div class="mk red" style="left:92%"><span>Projected DRC: Mar. 9</span></div></div>
+</div>
+<p class="small" style="color:var(--ink)">The proposal establishes 10–12 weeks for Phase 1 and 10 weeks for Phase 2. The schedule now aligns Phase 2 to Fort Lauderdale’s published DRC cadence and required preliminary development meeting.</p>
+<p class="gfoot">City review / DRC / resubmittal: Mar. 9 meeting is projected from the City’s 2026 second/fourth-Tuesday cadence; 2027 dates are not yet published. Schedule protection: Owner decisions / requested information returned within 3 business days.</p></div>
+</section>
+
+<section class="slide paper" data-ch="Schedule" data-title="Phase 1 · Concept Design" data-screen-label="54 Phase 1">
+<div class="frame top"><div class="head"><div><p class="eb">Phase 1 / Concept Design</p><h2 class="t3">kick-off. listen. define. explore.</h2></div><p class="gfoot" style="margin:0">Working calendar: Oct. 5 – Dec. 18, 2026 | 11 weeks within the proposal’s 10–12 week allowance</p></div>
+<div class="gantt" data-year="2026" data-start="2026-10-05" data-weeks="11">
+<div class="gh"><span>Dates</span><span>Workstream / milestone</span><div class="wk"></div></div>
+<div class="gr" data-a="10/5" data-b="10/9"><span class="d">10/5 – 10/9</span><span class="l">NTP / project kick-off / team + consultant onboarding</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/5" data-b="10/16"><span class="d">10/5 – 10/16</span><span class="l">Owner information + consultant input matrix</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/7" data-b="10/9"><span class="d">10/7 – 10/9</span><span class="l">Site tour / riverfront + downtown observation / photo journal</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/5" data-b="10/9"><span class="d">10/5 – 10/9</span><span class="l">Day One Workshop preparation</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="10/12"><span class="d">10/12</span><span class="l">Day One Workshop — success / story / standards / journey / program</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/13" data-b="10/23"><span class="d">10/13 – 10/23</span><span class="l">Workshop synthesis / Vision Book framework</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/5" data-b="10/23"><span class="d">10/5 – 10/23</span><span class="l">Site / zoning / code / by-right analysis</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/19" data-b="10/30"><span class="d">10/19 – 10/30</span><span class="l">Prepare / request Preliminary Development Meeting through LauderBuild</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="11/4"><span class="d">11/2 – 11/6</span><span class="l">Target Preliminary Development Meeting — City date TBD</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/12" data-b="10/23"><span class="d">10/12 – 10/23</span><span class="l">Program confirmation — hotel / residential / retail / wellness</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/12" data-b="10/30"><span class="d">10/12 – 10/30</span><span class="l">Parking strategy / Walker coordination</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/19" data-b="11/6"><span class="d">10/19 – 11/6</span><span class="l">Massing + stacking studies / podium + tower options</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/26" data-b="11/13"><span class="d">10/26 – 11/13</span><span class="l">Preliminary floor plans / unit-key mix / core studies</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="11/2" data-b="11/20"><span class="d">11/2 – 11/20</span><span class="l">Facade direction / character / material strategy</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="10/26" data-b="11/20"><span class="d">10/26 – 11/20</span><span class="l">Structural + MEP/FP concept coordination</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="11/18"><span class="d">11/18</span><span class="l">Owner Concept Checkpoint — direction + decisions</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="11/19" data-b="12/11"><span class="d">11/19 – 12/11</span><span class="l">Concept refinement / preliminary code summary / Vision Book</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="12/14"><span class="d">12/14</span><span class="l">Final Concept Presentation</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="12/14" data-b="12/16"><span class="d">12/14 – 12/16</span><span class="l">Owner review / consolidated comments</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="12/18"><span class="d">12/18</span><span class="l">Phase 1 Approval — signed phase approval / proceed to DRC</span><div class="bar"><i></i></div></div>
+</div>
+<p class="gfoot">City preliminary meeting occurs during Concept; Owner phase approval required before Phase 2.</p></div>
+</section>
+
+<section class="slide paper" data-ch="Schedule" data-title="Phase 2 · DRC + Entitlement" data-screen-label="55 Phase 2">
+<div class="frame top"><div class="head"><div><p class="eb">Phase 2 / DRC + Entitlement</p><h2 class="t3">coordinate. document. submit.</h2></div><p class="gfoot" style="margin:0">Working calendar: Jan. 4 – Mar. 12, 2027 | aligned to projected Mar. 9 DRC meeting cadence</p></div>
+<div class="gantt" data-year="2027" data-start="2027-01-04" data-weeks="10">
+<div class="gh"><span>Dates</span><span>Workstream / milestone</span><div class="wk"></div></div>
+<div class="gr" data-a="1/4" data-b="1/8"><span class="d">1/4 – 1/8</span><span class="l">Phase 2 kick-off / confirm DRC application + checklist</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/4" data-b="1/15"><span class="d">1/4 – 1/15</span><span class="l">Survey / site base / entitlement criteria confirmation</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/4" data-b="1/29"><span class="d">1/4 – 1/29</span><span class="l">Civil / landscape / traffic / waterfront coordination</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/4" data-b="1/29"><span class="d">1/4 – 1/29</span><span class="l">DRC site plan / plans / elevations / sections</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/4" data-b="1/29"><span class="d">1/4 – 1/29</span><span class="l">Facade / material + DRC rendering development</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/11" data-b="1/29"><span class="d">1/11 – 1/29</span><span class="l">Life-safety / egress / code analysis</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/11" data-b="1/22"><span class="d">1/11 – 1/22</span><span class="l">Parking / access coordination — Walker</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/11" data-b="1/29"><span class="d">1/11 – 1/29</span><span class="l">Structural + MEP/FP entitlement coordination</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="1/22"><span class="d">1/22</span><span class="l">50% DRC page-turn / interdisciplinary coordination</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/25" data-b="1/27"><span class="d">1/25 – 1/27</span><span class="l">Owner review / consolidated comments</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="1/28" data-b="2/3"><span class="d">1/28 – 2/3</span><span class="l">Final coordination / QA-QC / narrative / renderings</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="2/3"><span class="d">2/3</span><span class="l">Owner approval to submit</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="2/5"><span class="d">2/5</span><span class="l">Projected DRC application deadline — 5 Fridays before meeting</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="2/12"><span class="d">2/12</span><span class="l">Projected completeness determination</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="2/17"><span class="d">2/17</span><span class="l">Projected staff case review</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="2/18" data-b="3/4"><span class="d">2/18 – 3/4</span><span class="l">City technical review support / clarifications</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="3/5"><span class="d">3/5</span><span class="l">Projected DRC comment report</span><div class="bar"><i></i></div></div>
+<div class="gr m" data-a="3/9"><span class="d">3/9</span><span class="l">Target DRC meeting — projected 2027 cadence</span><div class="bar"><i></i></div></div>
+<div class="gr" data-a="3/10" data-b="3/12"><span class="d">3/10 – 3/12</span><span class="l">Comment triage / Owner + consultant response strategy</span><div class="bar"><i></i></div></div>
+</div>
+<p class="gfoot">2027 DRC dates are projected from the City’s published 2026 cadence; resubmittal / sign-off may extend beyond Mar. 12.</p></div>
+</section>
+
+<section class="slide paper" data-ch="Schedule" data-title="DRC path" data-screen-label="56 DRC path">
+<div class="frame"><p class="eb">Fort Lauderdale / DRC path</p><h2 class="t2">design to city review.</h2>
+<p class="small" style="color:var(--ink)">The City requires a Preliminary Development Meeting before formal DRC submittal. The dates below project the published 2026 review cadence into 2027 and remain subject to the City’s official 2027 calendar.</p>
+<div class="drc">
+<div><b>Week of Nov. 2</b><span>Preliminary development meeting</span></div>
+<div><b>Feb. 5*</b><span>Application deadline</span></div>
+<div><b>Feb. 12*</b><span>Completeness determination</span></div>
+<div><b>Feb. 17*</b><span>Staff case review</span></div>
+<div><b>Mar. 5*</b><span>DRC comment report</span></div>
+<div class="red"><b>Mar. 9*</b><span>DRC meeting</span></div>
+<div><b>Apr. 8*</b><span>Recommended resubmittal #1</span></div>
+</div>
+<div class="cols3" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-top:clamp(30px,6vh,60px)">
+<div><h3>City rule</h3><p class="small" style="margin:10px 0 0;color:var(--ink);display:block;border:0">Applications are due five Fridays before the DRC meeting. Staff case review occurs three Wednesdays before the meeting. The DRC comment report is issued the Friday before the meeting.</p></div>
+<div><h3>What this changes</h3><p class="small" style="margin:10px 0 0;color:var(--ink);display:block;border:0">We move the preliminary City touchpoint into Concept Design and target the DRC application for Feb. 5 so the 10-week Phase 2 window can include a projected Mar. 9 DRC meeting. Post-meeting resubmittal and final sign-off remain authority-controlled.</p></div>
+</div>
+<p class="gfoot">* Projected planning date — official 2027 DRC schedule not yet published.</p></div>
+</section>
+
+<section class="slide paper" data-ch="Schedule" data-title="Schedule control" data-screen-label="57 Schedule control">
+<div class="frame"><p class="eb">Schedule control</p><h2 class="t2">decisions that keep the schedule moving.</h2>
+<p class="small" style="color:var(--ink)">The proposal assumes sequential phases, timely Owner decisions, and coordinated inputs from Owner-direct consultants.</p>
+<div class="cols3">
+<div><h3>Owner decisions</h3><p><em>10/12</em>Day One Workshop alignment</p><p><em>11/18</em>Concept direction checkpoint</p><p><em>12/14 – 16</em>Final concept comments</p><p><em>12/18</em>Phase 1 approval</p><p><em>1/25 – 27</em>50% DRC comments</p><p><em>2/3</em>Approval to submit</p><p><em>3/10 – 12</em>DRC comment strategy</p></div>
+<div><h3>Critical inputs</h3><p><em>Wk 1</em>Owner program / objectives / budget</p><p><em>Wk 1 – 2</em>Survey + site information</p><p><em>Wk 1 – 4</em>Civil / landscape / traffic / waterfront</p><p><em>Wk 2 – 4</em>Parking strategy — Walker</p><p><em>Wk 4 – 7</em>Structural + MEP/FP concept input</p><p><em>Phase 1</em>Preliminary Development Meeting</p><p><em>Phase 2</em>DRC checklist / agency requirements</p><p><em>Ongoing</em>3-business-day RFI / decision turnaround</p></div>
+<div><h3>Phase milestones</h3><p><em>12/18</em>Concept approved</p><p><em>1/4</em>DRC phase begins</p><p><em>1/22</em>50% DRC page-turn</p><p><em>2/3</em>Owner approval to submit</p><p><em>2/5*</em>Projected application deadline</p><p><em>3/5*</em>Projected comment report</p><p><em>3/9*</em>Target DRC meeting</p></div>
+</div>
+<p class="gfoot">Schedule assumption: * 2027 DRC dates are projected from Fort Lauderdale’s published 2026 cadence. Official 2027 dates remain to be confirmed by the City.</p></div>
+</section>
+
+<!-- ================= CLOSE ================= -->
+<section class="slide hero ink" data-ch="Close" data-title="Purpose" data-screen-label="58 Close v2">
+<img class="bg" data-src="newriver/img/nr-close-night.jpg" alt="Night view from a curved tower balcony over the New River and Fort Lauderdale"><div class="shade"></div>
+<div class="cap" style="justify-content:flex-start;align-items:flex-start;text-align:left;padding-top:clamp(96px,15vh,150px)"><h2 class="t1" style="max-width:16ch;font-size:clamp(1.56rem,3.96vw,3.84rem)">The strongest design expresses a client’s purpose.</h2></div>
+</section>
+
+</main>
+
+<div class="edge l" id="eL" aria-hidden="true"></div>
+<div class="edge r" id="eR" aria-hidden="true"></div>
+<header class="chrome topbar"><nav class="chaps" id="chaps"></nav><a class="logo" href="#1"><img src="assets/ai3-logo-white.png" alt="ai3"></a><span class="count" id="count"></span></header>
+<div class="chrome readout"><b id="roCh"></b><span id="roT"></span></div>
+<div class="chrome pnav"><button id="bPrev" type="button" aria-label="Previous">‹</button><span class="lab" id="pLab"></span><button id="bNext" type="button" aria-label="Next">›</button></div>
+<div class="chrome hint">← → advance · ↑ ↓ chapters</div>
+<div class="chrome prog" id="prog"></div>
+<script type="text/plain" id="nrjs-src">(function(){
+  /* title font: shares the choice made on the ai3 site (localStorage 'ai3-title') */
+  const FONTS=[
+    {id:'archivo',fam:'Archivo',w:400,ls:'-.01em'},{id:'space',fam:'Space Grotesk',w:300,ls:'-.015em'},
+    {id:'plex',fam:'IBM Plex Sans',w:300,ls:'-.01em'},{id:'redhat',fam:'Red Hat Display',w:400,ls:'-.015em'},
+    {id:'hanken',fam:'Hanken Grotesk',w:300,ls:'-.02em'},{id:'chivo',fam:'Chivo',w:400,ls:'-.02em'},
+    {id:'instrument',fam:'Instrument Sans',w:400,ls:'-.015em'},{id:'inter',fam:'Inter',w:300,ls:'-.01em'},
+    {id:'worksans',fam:'Work Sans',w:300,ls:'-.01em'},{id:'jost',fam:'Jost',w:300,ls:'-.005em'},
+    {id:'urbanist',fam:'Urbanist',w:300,ls:'-.015em'},{id:'albert',fam:'Albert Sans',w:300,ls:'-.015em'},
+    {id:'manrope-l',fam:'Manrope',w:300,ls:'-.02em'},{id:'figtree',fam:'Figtree',w:400,ls:'-.01em'},
+    {id:'publicsans',fam:'Public Sans',w:400,ls:'-.01em'},{id:'karla',fam:'Karla',w:400,ls:'-.01em'},
+    {id:'mona',fam:'Mona Sans',w:400,ls:'-.01em'}];
+  let fid=null; try{ fid=localStorage.getItem('ai3-title'); }catch(e){}
+  const F=FONTS.find(f=>f.id===fid)||FONTS[0];
+  const lk=document.createElement('link'); lk.rel='stylesheet';
+  lk.href='https://fonts.googleapis.com/css2?family='+F.fam.replace(/ /g,'+')+':wght@300;400;500&display=swap';
+  document.head.appendChild(lk);
+  const rs=document.documentElement.style;
+  rs.setProperty('--title','"'+F.fam+'",system-ui,sans-serif'); rs.setProperty('--title-weight',F.w); rs.setProperty('--title-spacing',F.ls);
+
+  /* gantt bars */
+  const day=s=>{const [y,m,d]=s.split('-').map(Number);return Date.UTC(y,m-1,d)/864e5;};
+  document.querySelectorAll('.gantt').forEach(g=>{
+    const y=g.dataset.year, st=day(g.dataset.start), n=+g.dataset.weeks, span=n*7;
+    g.style.setProperty('--n',n);
+    const wk=g.querySelector('.wk'); if(wk){ wk.innerHTML=''; for(let i=0;i<n;i++){ const d=new Date((st+i*7)*864e5); const s=document.createElement('span'); s.textContent=(d.getUTCMonth()+1)+'/'+d.getUTCDate(); wk.appendChild(s);} }
+    g.querySelectorAll('.gr').forEach(r=>{
+      const p=x=>{const [m,d]=x.split('/').map(Number); const yy=(g.dataset.roll&&m<6)?+y+1:+y; return day(yy+'-'+m+'-'+d);};
+      const a=p(r.dataset.a), b=r.dataset.b?p(r.dataset.b):a;
+      const i=r.querySelector('.bar i'); if(!i) return;
+      const L=Math.max(0,(a-st)/span*100), W=Math.max(.9,(b-a+1)/span*100);
+      i.style.left=L+'%'; i.style.width=(r.classList.contains('m')?0:W)+'%';
+      if(r.classList.contains('m')) i.style.left=((a-st+.5)/span*100)+'%';
+    });
+  });
+
+  /* fit dense text frames to the viewport height: wrap content once, then zoom it down if it overflows */
+  document.querySelectorAll('.frame,.split .text').forEach(box=>{
+    const w=document.createElement('div'); w.className='fitw';
+    while(box.firstChild) w.appendChild(box.firstChild); box.appendChild(w); });
+  function fit(s){ if(!s) return; s.querySelectorAll('.fitw').forEach(w=>{
+    const box=w.parentElement, cs=getComputedStyle(box);
+    const avail=box.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+    w.style.zoom=''; const need=w.offsetHeight;
+    if(need>avail&&avail>0) w.style.zoom=Math.max(.5,avail/need*.98); }); }
+  addEventListener('resize',()=>fit(slides[cur]));
+  const slides=[...document.querySelectorAll('.slide')];
+  const chapters=[];
+  slides.forEach((s,i)=>{ let c=chapters.find(x=>x.name===s.dataset.ch); if(!c){c={name:s.dataset.ch,start:i};chapters.push(c);} s._ch=chapters.indexOf(c); s._g=0; });
+  const chapsEl=document.getElementById('chaps');
+  const L=window.__L=(el,t)=>{el.innerHTML=String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/ai3/gi,'<span style="text-transform:none">ai3</span>');};
+  chapters.forEach((c,ci)=>{ const a=document.createElement('a'); a.href='#'+(c.start+1); L(a,c.name); a.addEventListener('click',e=>{e.preventDefault();show(c.start);}); chapsEl.appendChild(a); c.el=a; });
+  const $=id=>document.getElementById(id);
+  const countEl=$('count'), roCh=$('roCh'), roT=$('roT'), prog=$('prog'), bPrev=$('bPrev'), bNext=$('bNext'), lab=$('pLab');
+  let cur=-1;
+  const pad=n=>String(n).padStart(2,'0');
+  function load(i){ const s=slides[i]; if(!s) return; s.querySelectorAll('img[data-src]').forEach(im=>{ im.src=im.dataset.src; im.removeAttribute('data-src'); }); }
+  function figs(s){ return [...s.querySelectorAll('.gimg')]; }
+  function setG(s,g){
+    const f=figs(s); if(!f.length) return; s._g=Math.max(0,Math.min(f.length-1,g));
+    f.forEach((x,i)=>x.classList.toggle('on',i===s._g));
+    const eb=s.querySelector('.wcap .eb'), gc=s.querySelector('.wcap .gc');
+    if(eb) (window.__L||((e,t)=>e.textContent=t))(eb,f[s._g].dataset.label||'');
+    if(gc) gc.textContent=pad(s._g+1)+' / '+pad(f.length);
+    s.classList.toggle('light-img',f[s._g].classList.contains('pap'));
+    ui();
+  }
+  function ui(){
+    const s=slides[cur];
+    document.body.classList.toggle('light',s.classList.contains('paper')||s.classList.contains('light-img'));
+    countEl.textContent=pad(cur+1)+' / '+pad(slides.length);
+    chapters.forEach((c,i)=>c.el.classList.toggle('on',i===s._ch));
+    L(roCh,chapters[s._ch].name); L(roT,s.dataset.title||'');
+    prog.style.width=((cur+1)/slides.length*100)+'%';
+    bPrev.disabled=cur===0&&!s._g; bNext.disabled=cur===slides.length-1&&(!figs(s).length||s._g===figs(s).length-1);
+    const f=figs(s); L(lab,f.length?('Images '+pad(s._g+1)+' / '+pad(f.length)):chapters[s._ch].name);
+  }
+  function show(i,fromEnd){
+    i=Math.max(0,Math.min(slides.length-1,i)); if(i===cur) return;
+    if(cur>=0) slides[cur].classList.remove('on');
+    cur=i; const s=slides[i]; s.classList.add('on');
+    [i,i+1,i-1,i+2].forEach(load); fit(s);
+    if(figs(s).length) setG(s,fromEnd?figs(s).length-1:0);
+    ui();
+    try{ localStorage.setItem('nr-pos',i); history.replaceState(null,'','#'+(i+1)); }catch(e){}
+  }
+  function next(){ const s=slides[cur], f=figs(s); if(f.length&&s._g<f.length-1){ setG(s,s._g+1); return; } show(cur+1); }
+  function prev(){ const s=slides[cur], f=figs(s); if(f.length&&s._g>0){ setG(s,s._g-1); return; } show(cur-1,true); }
+  window.__nrGo=(i,g)=>{show(i); if(g) setG(slides[i],g);};
+  function chap(d){ const c=slides[cur]._ch+d; if(chapters[c]) show(chapters[c].start); }
+  bPrev.addEventListener('click',prev); bNext.addEventListener('click',next);
+  $('eL').addEventListener('click',prev); $('eR').addEventListener('click',next);
+  addEventListener('keydown',e=>{
+    if(e.target.closest&&e.target.closest('input,textarea,[contenteditable="true"]')) return;
+    const k=e.key;
+    if(k==='ArrowRight'||k===' '||k==='PageDown'){e.preventDefault();next();}
+    else if(k==='ArrowLeft'||k==='PageUp'){e.preventDefault();prev();}
+    else if(k==='ArrowDown'){e.preventDefault();chap(1);}
+    else if(k==='ArrowUp'){e.preventDefault();chap(-1);}
+    else if(k==='Home'){show(0);} else if(k==='End'){show(slides.length-1);}
+  });
+  let start=0; const h=parseInt(location.hash.slice(1),10);
+  if(h) start=h-1; else { try{ start=+localStorage.getItem('nr-pos')||0; }catch(e){} }
+  show(start);
+  const refit=()=>requestAnimationFrame(()=>fit(slides[cur]));
+  refit(); addEventListener('load',refit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refit);
+  if(window.ResizeObserver) new ResizeObserver(refit).observe(document.getElementById('deck'));
+})();
+</script>
+<script>(function(){
+  const TXT='h1,h2,h3,.eb,.lead,.small,.words li,.seq,.nlist b,.nlist span,figcaption b,figcaption span,figcaption,.team b,.team span,.team h3,.clients li,.nums b,.nums span,.recog li,.cols3 h3,.cols3 p,.gfoot,.gr .l,.gr .d,.drc b,.drc span,.ph b,.ph span,.ph em,.months span,.mk,.cw,.credit,.pstory p';
+  const DB='nr-edit', ST='slides';
+  const idb=()=>new Promise((res,rej)=>{ const r=indexedDB.open(DB,1); r.onupgradeneeded=()=>r.result.createObjectStore(ST); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); });
+  const tx=(mode,fn)=>idb().then(db=>new Promise((res,rej)=>{ const t=db.transaction(ST,mode); const out=fn(t.objectStore(ST)); t.oncomplete=()=>res(out&&out.result); t.onerror=()=>rej(t.error); }));
+  const getAll=()=>idb().then(db=>new Promise(res=>{ const o={}; const c=db.transaction(ST).objectStore(ST).openCursor(); c.onsuccess=()=>{ const k=c.result; if(k){ o[k.key]=k.value; k.continue(); } else res(o); }; c.onerror=()=>res(o); })).catch(()=>({}));
+  const slides=()=>[...document.querySelectorAll('.slide')];
+
+  function clean(slide){
+    const c=slide.cloneNode(true);
+    c.querySelectorAll('.fitw').forEach(w=>{ while(w.firstChild) w.parentNode.insertBefore(w.firstChild,w); w.remove(); });
+    c.querySelectorAll('[contenteditable]').forEach(e=>e.removeAttribute('contenteditable'));
+    c.querySelectorAll('.ed-hot').forEach(e=>e.classList.remove('ed-hot'));
+    c.querySelectorAll('img[src]').forEach(im=>{ im.dataset.src=im.getAttribute('src'); im.removeAttribute('src'); });
+    return c.innerHTML;
+  }
+
+  function boot(){
+    const s=document.createElement('script'); s.textContent=document.getElementById('nrjs-src').textContent; document.body.appendChild(s); initUI();
+  }
+  getAll().then(saved=>{
+    slides().forEach(sl=>{ const k=sl.dataset.screenLabel; if(saved[k]!=null) sl.innerHTML=saved[k]; });
+    boot();
+  });
+
+  function initUI(){
+    const bar=document.createElement('div'); bar.className='chrome edbar';
+    bar.innerHTML='<button type="button" class="ed-ct"></button><button type="button" class="ed-th"></button><button type="button" class="ed-go">Edit</button><span class="ed-tools"><span class="ed-st">Editing</span><button type="button" class="ed-dl">Download</button><button type="button" class="ed-rs">Reset slide</button><button type="button" class="ed-done">Done</button></span>';
+    document.body.appendChild(bar);
+    const pick=document.createElement('input'); pick.type='file'; pick.accept='image/*'; pick.hidden=true; document.body.appendChild(pick);
+    const st=bar.querySelector('.ed-st');
+    const THEMES=[['linen','Linen'],['white','Gallery white'],['stone','Stone'],['charcoal','Charcoal']];
+    const thb=bar.querySelector('.ed-th');
+    let ti=3; try{ const k=THEMES.findIndex(t=>t[0]===localStorage.getItem('nr-paper')); if(k>=0) ti=k; }catch(e){}
+    function applyTheme(){ const t=THEMES[ti]; document.documentElement.dataset.pt=t[0]; thb.textContent='Pages: '+t[1]; try{ localStorage.setItem('nr-paper',t[0]); }catch(e){} }
+    thb.addEventListener('click',()=>{ ti=(ti+1)%THEMES.length; applyTheme(); });
+    applyTheme();
+    const CT=[['ink','Ink'],['charcoal','Charcoal'],['stone','Stone'],['linen','Linen'],['white','White']];
+    const ctb=bar.querySelector('.ed-ct');
+    let ci=0; try{ const k=CT.findIndex(t=>t[0]===localStorage.getItem('nr-collage')); if(k>=0) ci=k; }catch(e){}
+    function applyCt(){ const t=CT[ci]; document.documentElement.dataset.ct=t[0]; ctb.textContent='Collage: '+t[1]; try{ localStorage.setItem('nr-collage',t[0]); }catch(e){} }
+    ctb.addEventListener('click',()=>{ ci=(ci+1)%CT.length; applyCt(); });
+    applyCt();
+    let on=false, dirty=new Set(), t=null, target=null;
+    const cur=()=>document.querySelector('.slide.on');
+
+    function status(x){ st.textContent=x; }
+    function queue(sl){ if(!sl) return; dirty.add(sl); status('Saving…'); clearTimeout(t); t=setTimeout(flush,700); }
+    function flush(){ const list=[...dirty]; dirty.clear();
+      tx('readwrite',s=>{ list.forEach(sl=>s.put(clean(sl),sl.dataset.screenLabel)); }).then(()=>status('Saved')).catch(e=>status('Save failed — image too large?')); }
+
+    function setOn(v){
+      on=v; document.body.classList.toggle('editing',on);
+      slides().forEach(sl=>sl.querySelectorAll(TXT).forEach(el=>{
+        if(el.querySelector(TXT)) return;           // only leaf text blocks
+        if(on) el.setAttribute('contenteditable','true'); else el.removeAttribute('contenteditable'); }));
+      if(on) status('Editing'); else if(dirty.size) flush();
+    }
+    bar.querySelector('.ed-go').addEventListener('click',()=>setOn(true));
+    bar.querySelector('.ed-done').addEventListener('click',()=>{ document.activeElement&&document.activeElement.blur(); setOn(false); });
+
+    document.addEventListener('input',e=>{ if(!on) return; const el=e.target.closest('[contenteditable]'); if(!el) return;
+      const sl=el.closest('.slide');
+      if(el.matches('.wcap .eb')){ const f=sl.querySelector('.gimg.on'); if(f) f.dataset.label=el.textContent; }
+      queue(sl); });
+    document.addEventListener('keydown',e=>{ if(on&&e.key==='Escape'){ document.activeElement.blur(); } },true);
+
+    /* images: click to choose a file, or drop one on it */
+    function imgAt(e){ if(!on) return null; const im=e.target.closest&&e.target.closest('.slide img'); if(im) return im;
+      const sl=cur(); const g=e.target.closest&&e.target.closest('.s-work'); return g?sl.querySelector('.gimg.on img'):null; }
+    function place(im,file){ if(!file||!/^image\//.test(file.type)) return;
+      const r=new FileReader(); r.onload=()=>{ const src=new Image(); src.onload=()=>{
+        const k=Math.min(1,2400/Math.max(src.width,src.height)); const c=document.createElement('canvas');
+        c.width=Math.round(src.width*k); c.height=Math.round(src.height*k); c.getContext('2d').drawImage(src,0,0,c.width,c.height);
+        im.src=c.toDataURL('image/jpeg',.86); im.removeAttribute('data-src'); queue(im.closest('.slide')); }; src.src=r.result; }; r.readAsDataURL(file); }
+    document.addEventListener('click',e=>{ if(!on) return; if(e.target.closest('[contenteditable],.edbar,.pnav,.topbar')) return;
+      const im=imgAt(e); if(im){ e.preventDefault(); e.stopPropagation(); target=im; pick.value=''; pick.click(); } },true);
+    pick.addEventListener('change',()=>{ if(target&&pick.files[0]) place(target,pick.files[0]); });
+    let hot=null;
+    document.addEventListener('dragover',e=>{ if(!on) return; const im=imgAt(e); e.preventDefault();
+      const box=im&&(im.closest('.im,.media,.gimg,.collage')&&im.parentElement||im);
+      if(hot!==box){ hot&&hot.classList.remove('ed-hot'); hot=box; hot&&hot.classList.add('ed-hot'); } });
+    document.addEventListener('dragleave',e=>{ if(e.target===document.documentElement&&hot){ hot.classList.remove('ed-hot'); hot=null; } });
+    document.addEventListener('drop',e=>{ if(!on) return; e.preventDefault(); hot&&hot.classList.remove('ed-hot'); hot=null;
+      const im=imgAt(e); if(im) place(im,e.dataTransfer.files[0]); });
+
+    bar.querySelector('.ed-rs').addEventListener('click',()=>{ const sl=cur(); if(!sl) return;
+      if(!confirm('Reset this slide to the original text and images?')) return;
+      tx('readwrite',s=>s.delete(sl.dataset.screenLabel)).then(()=>location.reload()); });
+
+    bar.querySelector('.ed-dl').addEventListener('click',()=>{ if(dirty.size) flush();
+      const d=document.documentElement.cloneNode(true);
+      const live=slides(); [...d.querySelectorAll('.slide')].forEach((s,i)=>{ s.innerHTML=clean(live[i]); s.classList.remove('on'); });
+      d.querySelectorAll('.edbar,input[type=file],script[src$="nr.js"],link[href*="fonts.googleapis.com/css2?family="]:not([href*="Jost"])').forEach(n=>n.remove());
+      ['chaps','count','roCh','roT','pLab'].forEach(id=>{ const n=d.querySelector('#'+id); if(n) n.innerHTML=''; });
+      const b=d.querySelector('body'); b.className=''; d.removeAttribute('style');
+      const html='<!DOCTYPE html>\n'+d.outerHTML;
+      const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+      a.download='New River Presentation (edited).html'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); });
+  }
+})();
+</script>
+</body>
+</html>
